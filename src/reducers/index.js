@@ -10,7 +10,7 @@ const INITIAL_STATE = {
 export default handleActions({
 	[actions.loginSuccessful]: (state,action) => {
 		console.log('loginSuccessful called')
-		return {...state, currentUser: action.payload, error: null };
+		return {...state, isAuthenticated: true, currentUser: action.payload, error: null };
 	},
 	
 	[actions.loginFail]: (state,action) => {

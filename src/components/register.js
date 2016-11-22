@@ -3,6 +3,10 @@ import {connect} from 'react-redux';
 import * as actions from '../actions/index';
 
 class Register extends Component {
+	goHome() {
+		this.props.router.push('/');
+	}
+	
 	onRegister(feedback) {
 		let pass = this.refs.password.value;
 		let confirmPass = this.refs.confirmPassword.value;
@@ -30,6 +34,7 @@ class Register extends Component {
 				<input type="password" ref="confirmPassword" placeholder="confirm password" name="confirm-password" required />
 
 				<button type="submit" onClick={this.onRegister.bind(this)}>Register</button>
+				<button type="submit" onClick={this.goHome.bind(this)}>Home</button>
 			</div>
 		);
 	}
