@@ -13,14 +13,19 @@ export default handleActions({
 		return {...state, isAuthenticated: true, currentUser: action.payload, error: null };
 	},
 	
-	[actions.loginFail]: (state,action) => {
-		console.log('loginFail called')
+	[actions.handleFail]: (state,action) => {
+		console.log('handleFail called')
 		return {...state, error: action.payload };
 	},
 
 	[actions.destroySession]: (state, action) => {
 		console.log("you have logged out");
 		return {...state, isAuthenticated: false, currentUser: null};
+	},
+
+	[actions.createAccountSuccessful]: (state, action) => {
+		console.log("account created");
+		return {...state};
 	}
 	
 	

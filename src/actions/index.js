@@ -11,13 +11,25 @@ export const loginRequest = (username, password) => dispatch => {
       return { username, password };
   })
     .catch(err => {
-      dispatch(loginFail(err));
+      dispatch(handleFail(err));
       return false;
     })
 };
 
 export const loginSuccessful = createAction('LOGIN_SUCCESSFUL');
+export const handleFail = createAction('HANDLE_FAIL');
 
-export const loginFail = createAction('LOGIN_FAIL');
+export const createAccount = (username, password) => dispatch => {
+	return axios.post('https://polar-escarpment-86427.herokuapp.com/api/v1/users', { username, password })
+  	.then(function (response) {
+    	console.log(response);
+    	hashHistory.push('/login');
+  	})
+  	.catch(function (error) {
+    	console.log(error);
+  	});
+};
+
+export const createAccountSuccessful = createAction('CREATE_ACCOUNT_SUCCESSFUL');
 
 export const destroySession = createAction('DESTROY_SESSION');

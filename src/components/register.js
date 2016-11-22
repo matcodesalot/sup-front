@@ -8,14 +8,16 @@ class Register extends Component {
 	}
 	
 	onRegister(feedback) {
+		let user = this.refs.username.value;
 		let pass = this.refs.password.value;
 		let confirmPass = this.refs.confirmPassword.value;
 
-		if(pass === confirmPass && pass !== '' && confirmPass !== '') {
-			this.props.router.push('/login');
+		if(pass !== confirmPass) {
+			//this.props.router.push('/login');
+			console.log("passwords do not match");
 		}
 		else {
-			console.log("passwords do not match");
+			this.props.dispatch(actions.createAccount(user, pass));
 		}
 	}
 
@@ -25,7 +27,7 @@ class Register extends Component {
 				<h2>Register a new account</h2>
 
 				<label>Username</label>
-				<input type="text" placeholder="enter username" name="username" required />
+				<input type="text" ref="username" placeholder="enter username" name="username" required />
 
 				<label>Password</label>
 				<input type="password" ref="password" placeholder="enter password" name="password" required />
