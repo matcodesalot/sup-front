@@ -13,6 +13,7 @@ class Login extends Component {
 		if(this.props.isAuthenticated) {
 			this.props.router.push('/message');
 		}
+		console.log("isAuthenticated", this.props.isAuthenticated);
 	}
 
 	render() {
@@ -35,7 +36,7 @@ class Login extends Component {
 
 let mapStateToProps = function(state, props) {
 	return {
-		isAuthenticated: state.isAuthenticated,
+		isAuthenticated: state.isAuthenticated
 	}
 }
 
