@@ -35,8 +35,8 @@ fetch('https://polar-escarpment-86427.herokuapp.com/api/v1/users', {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: 'tester1',
-        password: 'tester1'
+        username: 'tester123',
+        password: 'tester123'
       })
     }).then(response => response.json().then(json => ({ json, response })))
       .then(({json, response}) => {
