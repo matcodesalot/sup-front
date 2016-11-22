@@ -1,38 +1,22 @@
 import fetch from 'isomorphic-fetch';
+import axios from 'axios';
+import { createAction } from 'redux-actions';
 
-export const SET_SIGN_IN = 'SET_SIGN_IN';
-export function setSignIn(bool) {
-    return {
-        type: SET_SIGN_IN,
-        payload: bool,
-    };
-}
+export const loginRequest = createAction('LOGIN_REQUEST');
 
-fetch('https://polar-escarpment-86427.herokuapp.com/api/v1/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        username: 'tester123',
-        password: 'tester123'
-      })
-    }).then(response => response.json().then(json => ({ json, response })))
-      .then(({json, response}) => {
-      if (response.ok === false) {
-        return Promise.reject(json);
-      }
-      return json;
+
+export const loginRequest = (username, password) => dispatch => {
+  return axios.get('https://polar-escarpment-86427.herokuapp.com/api/v1/users', { auth: { username, password } })
+    .then(() => {
+      dispatch(loginSuccessful({ username, password}));
+      return { username, password };
+  })
+    .catch(err => {
+      dispatch(loginFail(err));
+      return false;
     })
-    .then(
-      data => {
-    console.log(data);
-      },
-      ({response, data}) => {
-          console.log(data);
-          
-          if(response.status == 401) {
-              console.log(data.error);
-          }
-      }
-    );
+};
+
+export const loginSuccessful = createAction('LOGIN_SUCCESSFUL');
+
+export const loginFail = createAction('LOGIN_FAIL');

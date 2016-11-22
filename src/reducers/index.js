@@ -1,21 +1,20 @@
 import { handleActions } from 'redux-actions';
 import * as actions from '../actions/index';
 
-const initialState = {
-    isLoggedIn: false,
-    currentUsername: null,
-    currentPassword: null
+const INITIAL_STATE = {
+    isAuthenticated: false,
+    currentUser: null,
+    error: null
 };
 
-export default function theReducer(state = initialState, action) {
-	switch(action.type) {
-		case actions.SET_SIGN_IN:
-			console.log("did I change?", state);
-			return Object.assign({}, state, {
-				isLoggedIn: action.payload
-			});
-
-		default:
-			return state;
-	}
-}
+export default handleActions({
+	[actions.loginSuccessful]: (state,action) => {
+		return {...state, currentUser: action.payload, error: null };
+	},
+	
+	[actions.loginFail]: (state,action) => {
+		return {...state, error: action.payload };
+	},
+	
+	
+}, INITIAL_STATE);
