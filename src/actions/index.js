@@ -5,8 +5,9 @@ import { hashHistory } from 'react-router';
 
 export const loginRequest = (username, password) => dispatch => {
   return axios.get('https://polar-escarpment-86427.herokuapp.com/api/v1/users', { auth: { username, password } })
-    .then(() => {
+    .then((response) => {
       dispatch(loginSuccessful({ username, password}));
+      console.log(response);
       hashHistory.push('/message');
       return { username, password };
   })
