@@ -7,7 +7,7 @@ import * as actions from '../actions/index';
 class Search extends Component {
 	onLogout() {
 		this.props.dispatch(actions.destroySession())
-		
+		this.props.router.push('/');
 	}
 
 	render() {
