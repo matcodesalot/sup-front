@@ -8,6 +8,7 @@ class Search extends Component {
 	onLogout() {
 		this.props.dispatch(actions.destroySession());
 		this.props.router.push('/');
+		//hello
 	}
 
 	render() {
