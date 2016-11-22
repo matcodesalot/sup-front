@@ -2,9 +2,6 @@ import fetch from 'isomorphic-fetch';
 import axios from 'axios';
 import { createAction } from 'redux-actions';
 
-export const loginRequest = createAction('LOGIN_REQUEST');
-
-
 export const loginRequest = (username, password) => dispatch => {
   return axios.get('https://polar-escarpment-86427.herokuapp.com/api/v1/users', { auth: { username, password } })
     .then(() => {
