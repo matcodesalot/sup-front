@@ -18,7 +18,12 @@ const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router history={hashHistory}>
+		<Route path='/' component={App} />
+		<Route path='/login' component={Login} />
+		<Route path='/register' component={Register} />
+		<Route path="/message" component={Search} />
+	</Router>
   </Provider>,
   document.getElementById('root')
 );
