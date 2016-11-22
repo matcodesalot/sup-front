@@ -17,6 +17,7 @@ class Search extends Component {
 				<button onClick={this.onLogout.bind(this)}>Log out</button>
 				<h2>Search for a user and start up a conversation!</h2>
 				<input type="text" name="username" required />
+				<button type="submit">Search</button>
 			</div>
 		);
 	}
