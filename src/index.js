@@ -58,4 +58,4 @@ fetch('https://polar-escarpment-86427.herokuapp.com/api/v1/users', {
       }
     );
     
-export default store;
+//export default store;
