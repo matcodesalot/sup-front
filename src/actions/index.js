@@ -31,5 +31,4 @@ export const createAccount = (username, password) => dispatch => {
 };
 
 export const createAccountSuccessful = createAction('CREATE_ACCOUNT_SUCCESSFUL');
-
 export const destroySession = createAction('DESTROY_SESSION');
