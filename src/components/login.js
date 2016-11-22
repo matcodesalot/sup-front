@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions/index';
 
-function checkAuthenticated() {
-	if(this.props.isAuthenticated) {
-		this.props.router.push('/message');
-	}
-	console.log("isAuthenticated", this.props.isAuthenticated);
-}
-
 class Login extends Component {
 	goHome() {
 		this.props.router.push('/');
@@ -17,7 +10,7 @@ class Login extends Component {
 	onLogin() {
 		//if the user signed in correctly
 		this.props.dispatch(actions.loginRequest(this.refs.username.value, this.refs.password.value));
-		checkAuthenticated();
+		console.log("isAuthenticated", this.props.isAuthenticated);
 	}
 
 	render() {
