@@ -19,3 +19,5 @@ export const loginRequest = (username, password) => dispatch => {
 export const loginSuccessful = createAction('LOGIN_SUCCESSFUL');
 
 export const loginFail = createAction('LOGIN_FAIL');
+
+export const destroySession = createAction('DESTROY_SESSION');

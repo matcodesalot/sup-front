@@ -17,6 +17,10 @@ export default handleActions({
 		console.log('loginFail called')
 		return {...state, error: action.payload };
 	},
+
+	[actions.destroySession]: (state, action) => {
+		return {...state, isAuthenticated: false, currentUser: null};
+	}
 	
 	
 }, INITIAL_STATE);
