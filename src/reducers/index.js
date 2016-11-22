@@ -19,6 +19,7 @@ export default handleActions({
 	},
 
 	[actions.destroySession]: (state, action) => {
+		console.log("you have logged out");
 		return {...state, isAuthenticated: false, currentUser: null};
 	}
 	

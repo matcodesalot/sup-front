@@ -5,11 +5,16 @@ import {connect} from 'react-redux';
 import * as actions from '../actions/index';
 
 class Search extends Component {
+	onLogout() {
+		this.props.dispatch(actions.destroySession())
+		
+	}
+
 	render() {
 		return(
 			<div>
 				<h1>Hello {this.props.name}</h1>
-				<button>Log out</button>
+				<button onClick={this.onLogout.bind(this)}>Log out</button>
 				<h2>Search for a user and start up a conversation!</h2>
 				<input type="text" name="username" required />
 			</div>
