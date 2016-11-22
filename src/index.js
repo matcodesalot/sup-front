@@ -9,7 +9,7 @@ import actions from './actions/index';
 import reducers from './reducers/index';
 import App from './App';
 import './index.css';
-import { Router, Route, Link, hashHistory } from 'react-router';
+import { Router, Route, Link, browserHistory } from 'react-router';
 import Login from './components/login';
 import Register from './components/register';
 import Search from './components/search';
@@ -18,7 +18,7 @@ const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={hashHistory}>
+    <Router history={browserHistory}>
 		<Route path='/' component={App} />
 		<Route path='/login' component={Login} />
 		<Route path='/register' component={Register} />
