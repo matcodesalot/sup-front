@@ -12,6 +12,8 @@ class Login extends Component {
 	render() {
 		return(
 			<div>
+				<h2>Please log in</h2>
+
 				<label>Username</label>
 				<input type="text" placeholder="enter username" name="username" required />
 
